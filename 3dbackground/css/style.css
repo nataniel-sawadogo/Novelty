@@ -178,7 +178,7 @@ nav {
 
 .header-elements>a {
     color: var(--default-color);
-    font-size: 3rem;
+    font-size: 1em;
 }
 
 #header-list>:nth-child(5):hover {
@@ -221,7 +221,7 @@ nav {
     transition: ease 0.2s;
 }
 #dropdown>li>a{
-    font-size: 3rem;
+    font-size: 1em;
 }
 
 /*Welcome*/
@@ -267,13 +267,13 @@ nav {
 }
 
 .text-container1 h1 {
-    font-size: 7.5rem;
+    font-size: 2.5em;
     text-transform: uppercase;
     padding-top: 7vh;
 }
 
 .text-container1 p {
-    font-size: 6rem;
+    font-size: 2em;
     padding-bottom: 7vh;
     margin-top: 3vh;
     text-align: justify;
@@ -344,8 +344,8 @@ nav {
 }
 
 .welcome-button img {
-    height: 15rem;
-    width: 15rem;
+    height: 5em;
+    width: 5em;
 }
 
 #button1 {
@@ -353,7 +353,8 @@ nav {
 }
 
 #button2 {
-    right: 8vw;
+    right: 1vw;
+    top: 30vh;
 }
 
 .welcome-button :hover {
@@ -368,7 +369,7 @@ nav {
     /* background-color: gray; */
     overflow: auto;
     justify-content: space-around;
-    gap: 6rem;
+    gap: 2em;
 }
 
 .service{
