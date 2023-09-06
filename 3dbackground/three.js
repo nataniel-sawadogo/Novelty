@@ -311,7 +311,7 @@ loader.load(
 // )
 
 //Background
-scene.background = new THREE.Color(0xccee88)
+scene.background = new THREE.Color(0x66ff44)
 
 //ScrollPosition
 let scroll
