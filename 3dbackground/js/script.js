@@ -38,7 +38,7 @@ const aboutUs = [
     'our strive for excellence, we have grown from simple checkups and',
     'prescriptions to a wide variety of services, surgery, vaccination, and diverse',
     'forms of pet care.',
-    'We have more than number veterinarians and specialists here to provide',
+    'We have more than 15 veterinarians and specialists here to provide',
     'the best and most complete care for your animals.'
 ]
 const aboutText = document.querySelectorAll('.text-container2>p')
@@ -143,15 +143,15 @@ const type = ()=>{
     for (let i = 0; i < aboutText.length; i++) {
         setTimeout(() => {
             let line = Array.from(aboutUs[i])
-        let output
-        for(let j = 0; j <= line.length; j++){
-            setTimeout(()=>{
-                output = line.slice(0,j).join('')
-                console.log(output)
-                aboutText[i].innerHTML = output
-            },j * 50)
-        }
-        }, i * 4000);
+            let output
+            for(let j = 0; j <= line.length; j++){
+                setTimeout(()=>{
+                    output = line.slice(0,j).join('')
+                    console.log(output)
+                    aboutText[i].innerHTML = output
+                },j * 10)
+            }
+        }, i * 800);
     }
 }
 
