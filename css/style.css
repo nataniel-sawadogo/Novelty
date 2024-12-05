@@ -3,7 +3,9 @@
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
+    scroll-behavior: smooth;
 }
+
 
 :root {
     --hover-color: rgb(255, 106, 0);
@@ -12,6 +14,13 @@
     --novelty-orange: #FFBD59;
     --novelty-green1: rgb(4, 189, 4);
     --novelty-blue1: rgb(0, 214, 146);
+
+    --text: #040b1a;
+    --background: #fffdf1;
+    --primary: #FFBD59;
+    --secondary: #fffabf;
+    --accent: #ff8e1d;
+
 }
 
 /*Animations*/
@@ -22,7 +31,7 @@
     }
 
     40% {
-        left: 92vw;
+        left: 96vw;
         z-index: 1;
     }
 
@@ -177,6 +186,7 @@ nav {
 
 .header-elements>a {
     color: var(--default-color);
+    font-size: 1em;
 }
 
 #header-list>:nth-child(5):hover {
@@ -217,6 +227,9 @@ nav {
     background-color: var(--hover-color);
     border: white 3px solid;
     transition: ease 0.2s;
+}
+#dropdown>li>a{
+    font-size: 1em;
 }
 
 /*Welcome*/
@@ -262,13 +275,13 @@ nav {
 }
 
 .text-container1 h1 {
-    font-size: 3.5rem;
+    font-size: 2.5em;
     text-transform: uppercase;
     padding-top: 7vh;
 }
 
 .text-container1 p {
-    font-size: 2rem;
+    font-size: 2em;
     padding-bottom: 7vh;
     margin-top: 3vh;
     text-align: justify;
@@ -332,15 +345,17 @@ nav {
     position: absolute;
     cursor: pointer;
     top: 40vh;
-    height: 5rem;
-    width: 5rem;
+    height: 15rem;
+    width: 15rem;
     border-radius: 50%;
     overflow: hidden;
+    z-index: 1;
 }
 
 .welcome-button img {
-    height: 5rem;
-    width: 5rem;
+    height: 5em;
+    width: 5em;
+    z-index: 0;
 }
 
 #button1 {
@@ -348,7 +363,8 @@ nav {
 }
 
 #button2 {
-    right: 8vw;
+    right: 1vw;
+    top: 30vh;
 }
 
 .welcome-button :hover {
@@ -363,14 +379,14 @@ nav {
     /* background-color: gray; */
     overflow: auto;
     justify-content: space-around;
-    gap: 5rem;
+    gap: 2em;
 }
 
 .service{
     height: 40vh;
     width: 15vw;
     border-radius: 1rem;
-    border-top-left-radius: 3.5rem;
+    border-top-left-radius: 2.5rem;
     position: relative;
 }
 
@@ -383,8 +399,8 @@ nav {
 
 .box{
     position: absolute;
-    inset: 1rem;
-    background: rgb(27, 26, 26);
+    inset: 0.5rem;
+    background: white;
     border-radius: 0.5rem;
 }
 
@@ -451,10 +467,28 @@ nav {
 .iconBox{
     position: absolute;
     inset: 0.6rem;
-    background: rgb(27, 26, 26);
+    background: white;
     border-radius: 50%;
     border-top-right-radius: 0.6rem;
     border-bottom-left-radius: 0.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ion-icon{
+    scale: 3;
+}
+.uil-syringe, .uil-head-side-mask, .uil-home, .uil-line-alt{
+    scale: 3
+}
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.content>h3{
+    font-size: 1.5rem;
 }
 
 /*Reviews*/
@@ -469,7 +503,7 @@ nav {
 }
 
 .review{
-    border: red 1px solid;
+    /* border: red 1px solid; */
     background-image: url(/images/dog-paw-svgrepo-com.svg);
     background-position: center;
     background-repeat: none;
@@ -483,6 +517,18 @@ nav {
 
 .review:hover{
     background-size: 120% 120%;
+}
+.review:hover>p{
+    display: initial;
+    position: absolute;
+    left: 1vw;
+    top: 18vh;
+    z-index: 10;
+    font-size: 1.8rem;
+    font-weight: bold;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke: var(--default-color);
+    -webkit-text-stroke-width: 1px;
 }
 
 .blur{
@@ -511,7 +557,11 @@ nav {
 .shown{
     opacity: 1;
 }
+.review>p{
+    display: none;
+}
 
+/*About page*/
 #about{
     height: 100vh;
     width: 100%;
@@ -540,7 +590,7 @@ nav {
     padding-bottom: 1.9rem; */
 }
 .text-container2 > p{
-    font-size: 1.3rem;
+    font-size: 1rem;
 }
 
 /*Maps*/
@@ -559,10 +609,15 @@ nav {
 }
 
 #loc.active {
-    height: 350px;
-    width: 650px;
+    height: 45vh;
+    width: 55vw;
     position: absolute;
     display: initial;
+    /* left: 20vw; */
+}
+#loc>iframe{
+    height: 45vh;
+    width: 55vw;
 }
 
 .pre-paper {
@@ -583,15 +638,15 @@ nav {
 }
 
 .pre-paper>h1 {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
 }
 
 .paper {
     display: none;
     position: absolute;
     /* border: red 1px solid; */
-    height: 400px;
-    width: 350px;
+    height: 50vh;
+    width: 30vw;
     transition: ease 1s;
     cursor: pointer;
 }
@@ -601,15 +656,15 @@ nav {
 }
 
 .first-half {
-    height: 400px;
-    width: 350px;
+    height: 50vh;
+    width: 30vw;
     box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.6);
     /* overflow: hidden; */
 }
 
 .second-half {
-    height: 400px;
-    width: 700px;
+    height: 50vh;
+    width: 60vw;
     display: flex;
     transition: ease 2s;
     /* overflow: hidden; */
@@ -625,29 +680,29 @@ nav {
 }
 
 .paper.active {
-    height: 400px;
-    width: 700px;
+    height: 50vh;
+    width: 60vw;
     transition: ease 1s;
 }
 
 .visible {
-    height: 400px;
-    width: 350px;
+    height: 50vh;
+    width: 30vw;
     /* box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.6); */
 }
 
 .invisible {
-    height: 400px;
-    width: 350px;
+    height: 50vh;
+    width: 30vw;
 }
 
 .inner {
-    height: 400px;
-    width: 350px;
+    height: 50vh;
+    width: 30vw;
     background-color: antiquewhite;
 }
 
-.circle {
+/*.circle {
     position: absolute;
     background-color: peachpuff;
     height: 100px;
@@ -662,7 +717,7 @@ nav {
     top: 150px;
     left: 300px;
     display: flex;
-    /* border: red 1px solid; */
+     border: red 1px solid;
 }
 
 .inner-circle-container {
@@ -670,7 +725,7 @@ nav {
     height: 100px;
     width: 50px;
     overflow: hidden;
-    /* border: yellow 1px solid; */
+    border: yellow 1px solid;
 }
 
 .cont1 {
@@ -689,8 +744,8 @@ nav {
     right: 0;
     top: 150px;
     position: absolute;
-    /* border: yellow 1px solid; */
-}
+    border: yellow 1px solid;
+}*/
 
 /*Empty sections*/
 .empty-section {
@@ -705,15 +760,18 @@ footer {
     background-color: var(--default-color);
     display: flex;
     justify-content: space-around;
+    z-index: 50;
+    position: relative;
 }
 
 #footer-logo>p {
     color: white;
     text-align: right;
+    font-size: 1rem !important;
 }
 
 #copyright {
-    font-size: 0.75rem;
+    font-size: 1rem;
 }
 
 #footer-logo,
@@ -734,7 +792,13 @@ footer {
 }
 
 #footer-contact>a>p {
-    margin-left: 1rem;
+    margin-left: 7rem;
+    font-size: 1rem;
+}
+
+.uil-map-marker, .uil-phone, .uil-envelope-alt{
+    scale: 2;
+    margin-top: 1.8vh;
 }
 
 .footer-line {
@@ -753,14 +817,14 @@ footer {
     display: flex;
     align-items: center;
     justify-self: center;
-    height: 44px;
-    width: 44px;
-    padding: 5px;
+    height: 7vh;
+    width: 7vh;
+    padding: 1vh;
 }
 
 .footer-line>a>img {
-    height: 44px;
-    width: 44px;
+    height: 7vh;
+    width: 7vh;
     overflow: hidden;
 }
 

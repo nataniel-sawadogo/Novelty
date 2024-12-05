@@ -8,4 +8,4 @@
  3. Javascript
  4. ThreeJS
 
-To launch it, go to 3dbackground and run `npm run dev` in the terminal.
+To launch it run `npm run dev` in the terminal.

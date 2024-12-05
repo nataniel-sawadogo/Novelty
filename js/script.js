@@ -38,10 +38,11 @@ const aboutUs = [
     'our strive for excellence, we have grown from simple checkups and',
     'prescriptions to a wide variety of services, surgery, vaccination, and diverse',
     'forms of pet care.',
-    'We have more than number veterinarians and specialists here to provide',
+    'We have more than 15 veterinarians and specialists here to provide',
     'the best and most complete care for your animals.'
 ]
 const aboutText = document.querySelectorAll('.text-container2>p')
+const about = document.querySelector('#about')
 
 
 console.log(height);
@@ -129,28 +130,31 @@ const changeReviews = ()=>{
     console.log('changed');
 }
 
-generateRandomPosition()
-setTimeout(() => {
-    setInterval(() => {
-        changeReviews()
-    }, 3000);
-}, 3000);
+// generateRandomPosition()
+// setTimeout(() => {
+//     setInterval(() => {
+//         changeReviews()
+//     }, 3000);
+// }, 3000);
 
 //Typing animation
 console.log(aboutText.length);
-for (let i = 0; i < aboutText.length; i++) {
-    setTimeout(() => {
-        let line = Array.from(aboutUs[i])
-    let output
-    for(let j = 0; j <= line.length; j++){
-        setTimeout(()=>{
-            output = line.slice(0,j).join('')
-            console.log(output)
-            aboutText[i].innerHTML = output
-        },j * 50)
+const type = ()=>{
+    for (let i = 0; i < aboutText.length; i++) {
+        setTimeout(() => {
+            let line = Array.from(aboutUs[i])
+            let output
+            for(let j = 0; j <= line.length; j++){
+                setTimeout(()=>{
+                    output = line.slice(0,j).join('')
+                    console.log(output)
+                    aboutText[i].innerHTML = output
+                },j * 10)
+            }
+        }, i * 800);
     }
-    }, i * 4000);
 }
+
 
 //Copyright
 let year = d.getFullYear()
@@ -162,7 +166,7 @@ const displayMenu = ()=>{
     headerList.style.animation = 'slide-down 0.6s'
     plusButton.classList.toggle('active')
 }
-
+let typed = 0
 window.addEventListener('scroll', ()=>{
     //Header transition animation
     let scrollPosition = Math.floor((window.scrollY/height)*2000)
@@ -174,6 +178,11 @@ window.addEventListener('scroll', ()=>{
         console.log(header.style.backgroundColor);
     }else{
         header.style.background = 'none'
+    }
+    
+    if(scrollPosition>=1400 && typed==0){
+        typed = 1
+        type()
     }
   }
 )
