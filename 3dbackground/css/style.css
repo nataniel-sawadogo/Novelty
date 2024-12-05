@@ -6,6 +6,7 @@
     scroll-behavior: smooth;
 }
 
+
 :root {
     --hover-color: rgb(255, 106, 0);
     --default-color: black;
@@ -13,6 +14,13 @@
     --novelty-orange: #FFBD59;
     --novelty-green1: rgb(4, 189, 4);
     --novelty-blue1: rgb(0, 214, 146);
+
+    --text: #040b1a;
+    --background: #fffdf1;
+    --primary: #FFBD59;
+    --secondary: #fffabf;
+    --accent: #ff8e1d;
+
 }
 
 /*Animations*/
