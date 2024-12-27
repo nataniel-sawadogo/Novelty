@@ -72,20 +72,20 @@ const swipeRight = ()=>{
         circles[cardPosition - 1].style.backgroundColor = 'white'
     }
     console.log('Swipe right');
-    firstCard.style.animation = 'swipe-right 4s'
+    firstCard.style.animation = 'swipe-right 2s'
     setTimeout(()=>{
         secondCard.classList.add('first-card')
         secondCard.classList.remove('second-card')
         thirdCard.classList.add('second-card')
         thirdCard.classList.remove('third-card')
-    },700)
+    },350)
     setTimeout(()=>{
         firstCard.classList.add('third-card')
         firstCard.classList.remove('first-card')
-    },2400)
+    },1200)
     setTimeout(() => {
         button2.style.display = 'initial'
-    }, 4000);
+    }, 2000);
 }
 
 //Map animation
@@ -167,39 +167,6 @@ const displayMenu = ()=>{
     plusButton.classList.toggle('active')
 }
 let typed = 0
-window.addEventListener('scroll', ()=>{
-    //Header transition animation
-    let scrollPosition = Math.floor((window.scrollY/height)*2000)
-    console.log(scrollPosition);
-    if(scrollPosition>100){
-        header.style.backgroundColor = '#FFBD59'
-    }else if(scrollPosition>1 && scrollPosition<=100){
-        header.style.backgroundColor = `rgba(255, 188, 87, ${Math.fround(scrollPosition/100)})`
-        console.log(header.style.backgroundColor);
-    }else{
-        header.style.background = 'none'
-    }
-    
-    if(scrollPosition>=1400 && typed==0){
-        typed = 1
-        type()
-    }
-  }
-)
-window.addEventListener('scroll', //Text color
-()=>{
-    if(scrollPosition>100){
-        for(let i=0; i<=headerElements.length; i++){
-           // headerElements[i].classList.add('active')
-           headerElements[i].style.color = 'white'
-    }
-    }else if(scrollPosition<=100){
-        for(let i=0; i<=headerElements.length; i++){
-            //headerElements[i].classList.remove('active')
-            headerElements[i].style.color = 'black'
-        }
-    }
-})
 
 
 

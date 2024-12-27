@@ -15,8 +15,9 @@ console.log(scrollPosition);
 //Setup
 
 const scene = new THREE.Scene();
+scene.fog = new THREE.Fog(0xfffabf, 25, 75)
 
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 250);
 
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector('#bg'),
@@ -49,40 +50,56 @@ sun.position.set(185,15,0)
 scene.add(ambientLight, light1, light2, sun)
 
 //Orbit controls
-//const lightHelper = new THREE.PointLightHelper(light1)
-//const lightHelper2 = new THREE.PointLightHelper(light2)
-//const gridHelper = new THREE.GridHelper(200, 50);
-//scene.add(gridHelper, lightHelper, lightHelper2)
+// const lightHelper = new THREE.PointLightHelper(light1)
+// const lightHelper2 = new THREE.PointLightHelper(light2)
+// const gridHelper = new THREE.GridHelper(200, 50);
+// scene.add(gridHelper, lightHelper, lightHelper2)
 
-//const controls = new OrbitControls(camera, renderer.domElement);
+// const controls = new OrbitControls(camera, renderer.domElement);
+
+let helpers = false
+
+if (window.location.href.includes("index3")) helpers = true
+
+if (helpers) {
+    const lightHelper = new THREE.PointLightHelper(light1)
+    const lightHelper2 = new THREE.PointLightHelper(light2)
+    const gridHelper = new THREE.GridHelper(200, 50);
+    scene.add(gridHelper, lightHelper, lightHelper2)
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+
+    scene.fog = null
+
+}
 
 //Text
 const fontLoader = new FontLoader()
 fontLoader.load(
-    'node_modules/three/examples/fonts/droid/droid_sans_regular.typeface.json',
+    'node_modules/three/examples/fonts/droid/droid_sans_bold.typeface.json',
     (droidFont)=>{
-        const textGeometry = new TextGeometry('WELCOME TO NOVELTY',{
+        const textGeometry = new TextGeometry('WELCOME TO NOVELTY', {
             height : 0,
             size : 5,
             font : droidFont,
         })
-        const textMaterial = new THREE.MeshStandardMaterial(0xffffff)
+        const textMaterial = new THREE.MeshStandardMaterial({color: 0x040b1a})
         const textMesh = new THREE.Mesh(textGeometry, textMaterial)
-        textMesh.position.x = 36
+        textMesh.position.x = 38
         textMesh.position.z = 125
         textMesh.rotation.y = 3.14
         scene.add(textMesh)
      }
 )
 fontLoader.load(
-    'node_modules/three/examples/fonts/droid/droid_sans_regular.typeface.json',
+    'node_modules/three/examples/fonts/droid/droid_sans_bold.typeface.json',
     (droidFont)=>{
         const textGeometry = new TextGeometry('OUR SERVICES',{
             height : 0,
             size : 5,
             font : droidFont,
         })
-        const textMaterial = new THREE.MeshStandardMaterial(0xffffff)
+        const textMaterial = new THREE.MeshStandardMaterial({color: 0x040b1a})
         const textMesh = new THREE.Mesh(textGeometry, textMaterial)
         textMesh.position.x = 23
         textMesh.position.z = 50
@@ -91,14 +108,14 @@ fontLoader.load(
      }
 )
 fontLoader.load(
-    'node_modules/three/examples/fonts/droid/droid_sans_regular.typeface.json',
+    'node_modules/three/examples/fonts/droid/droid_sans_bold.typeface.json',
     (droidFont)=>{
         const textGeometry = new TextGeometry('REVIEWS',{
             height : 0,
             size : 5,
             font : droidFont,
         })
-        const textMaterial = new THREE.MeshStandardMaterial(0xffffff)
+        const textMaterial = new THREE.MeshStandardMaterial({color: 0x040b1a})
         const textMesh = new THREE.Mesh(textGeometry, textMaterial)
         textMesh.position.x = -50
         textMesh.position.z = 13
@@ -107,14 +124,14 @@ fontLoader.load(
      }
 )
 fontLoader.load(
-    'node_modules/three/examples/fonts/droid/droid_sans_regular.typeface.json',
+    'node_modules/three/examples/fonts/droid/droid_sans_bold.typeface.json',
     (droidFont)=>{
         const textGeometry = new TextGeometry('ABOUT US',{
             height : 0,
             size : 5,
             font : droidFont,
         })
-        const textMaterial = new THREE.MeshStandardMaterial(0xffffff)
+        const textMaterial = new THREE.MeshStandardMaterial({color: 0x040b1a})
         const textMesh = new THREE.Mesh(textGeometry, textMaterial)
         textMesh.position.x = -15
         textMesh.position.z = -50
@@ -122,14 +139,14 @@ fontLoader.load(
      }
 )
 fontLoader.load(
-    'node_modules/three/examples/fonts/droid/droid_sans_regular.typeface.json',
+    'node_modules/three/examples/fonts/droid/droid_sans_bold.typeface.json',
     (droidFont)=>{
         const textGeometry = new TextGeometry('CONTACT US',{
             height : 0,
             size : 5,
             font : droidFont,
         })
-        const textMaterial = new THREE.MeshStandardMaterial(0xffffff)
+        const textMaterial = new THREE.MeshStandardMaterial({color: 0x040b1a})
         const textMesh = new THREE.Mesh(textGeometry, textMaterial)
         textMesh.position.x = 50
         textMesh.position.z = -19
@@ -311,7 +328,7 @@ loader.load(
 // )
 
 //Background
-scene.background = new THREE.Color(0x66ff44)
+scene.background = new THREE.Color(0xfffabf)
 
 //ScrollPosition
 let scroll
