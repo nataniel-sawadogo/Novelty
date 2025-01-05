@@ -15,7 +15,7 @@ console.log(scrollPosition);
 //Setup
 
 const scene = new THREE.Scene();
-scene.fog = new THREE.Fog(0xfffabf, 25, 75)
+scene.fog = new THREE.Fog(0xfffabf, 50, 100)
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 250);
 
@@ -32,7 +32,7 @@ window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
 })
-camera.position.setZ(100)
+camera.position.setZ(125)
 camera.rotation.y = 3.14
 
 renderer.render(scene, camera)
@@ -86,7 +86,7 @@ fontLoader.load(
         const textMaterial = new THREE.MeshStandardMaterial({color: 0x040b1a})
         const textMesh = new THREE.Mesh(textGeometry, textMaterial)
         textMesh.position.x = 38
-        textMesh.position.z = 125
+        textMesh.position.z = 150
         textMesh.rotation.y = 3.14
         scene.add(textMesh)
      }
@@ -102,7 +102,7 @@ fontLoader.load(
         const textMaterial = new THREE.MeshStandardMaterial({color: 0x040b1a})
         const textMesh = new THREE.Mesh(textGeometry, textMaterial)
         textMesh.position.x = 23
-        textMesh.position.z = 50
+        textMesh.position.z = 75
         textMesh.rotation.y = 3.14
         scene.add(textMesh)
      }
@@ -342,18 +342,18 @@ window.addEventListener('scroll', ()=>{
 function moveCamera() {
     let newScroll
     let smallRad = Math.PI / 200
-    if(scroll <= 530){
-        if(scroll == 530){
+    if(scroll <= 730){
+        if(scroll == 730){
             camera.rotation.set(0, 3.14, 0)
         }
         console.log('f1');
         camera.position.setX( 0 )
         camera.rotation.set(0, 3.14, 0)
 
-        camera.position.z = 100 - (scroll * 0.1886)
+        camera.position.z = 125 - (scroll * 0.1712)
 
-    }else if(scroll > 530 && scroll <= 630){
-        newScroll = -530 + scroll
+    }else if(scroll > 730 && scroll <= 830){
+        newScroll = -730 + scroll
         console.log('f2');
         camera.position.setX( 0 )
         camera.position.setZ( 0 )
@@ -361,17 +361,17 @@ function moveCamera() {
         camera.rotation.y = Math.PI - (newScroll * smallRad)
 
         console.log(camera.rotation);
-    }else if(scroll > 630 && scroll <= 870){
-        newScroll = -630 + scroll
+    }else if(scroll > 830 && scroll <= 1070){
+        newScroll = -830 + scroll
         console.log('f3');
         camera.position.setZ( 0 )
         camera.rotation.set(0, (smallRad*100), 0)
 
         camera.position.x = -newScroll * 0.3542
 
-    }else if(scroll > 870 && scroll <= 970){
-        newScroll = -870 + scroll
-        if(newScroll == 970){
+    }else if(scroll > 1070 && scroll <= 1170){
+        newScroll = -1070 + scroll
+        if(newScroll == 1170){
             camera.rotation.set(0, (smallRad*100), 0)
         }
         console.log('f4');
@@ -379,8 +379,8 @@ function moveCamera() {
 
         camera.position.x = -85 + (newScroll * 0.85)
 
-    }else if(scroll > 970 && scroll <= 1070){
-        newScroll = -970 + scroll
+    }else if(scroll > 1170 && scroll <= 1270){
+        newScroll = -1170 + scroll
         console.log('f5');
         camera.position.setX( 0 )
         camera.position.setZ( 0 )
@@ -388,17 +388,17 @@ function moveCamera() {
         camera.rotation.y = (Math.PI/2) - (newScroll * smallRad)
 
         console.log(camera.rotation);
-    }else if(scroll > 1070 && scroll <= 1310){
-        newScroll = -1070 + scroll
+    }else if(scroll > 1270 && scroll <= 1510){
+        newScroll = -1270 + scroll
         console.log('f6');
         camera.position.setX( 0 )
         camera.rotation.set(0, 0, 0)
 
         camera.position.z = -newScroll * 0.42
 
-    }else if(scroll > 1310 && scroll <= 1410){
-        newScroll = -1310 + scroll
-        if(newScroll == 1410){
+    }else if(scroll > 1510 && scroll <= 1610){
+        newScroll = -1510 + scroll
+        if(newScroll == 1610){
             camera.rotation.set(0, 0, 0)
         }
         console.log('f7');
@@ -407,8 +407,8 @@ function moveCamera() {
 
         camera.position.z = -100 + newScroll
 
-    }else if(scroll > 1410 && scroll <= 1510){
-        newScroll = -1410 + scroll
+    }else if(scroll > 1610 && scroll <= 1710){
+        newScroll = -1610 + scroll
         console.log('f8');
         camera.position.setX( 0 )
         camera.position.setZ( 0 )
@@ -416,15 +416,15 @@ function moveCamera() {
         camera.rotation.y = - (newScroll * smallRad)
 
         console.log(camera.rotation);
-    }else if(scroll > 1510 && scroll <= 1800){
-        newScroll = -1510 + scroll
+    }else if(scroll > 1710 && scroll <= 2000){
+        newScroll = -1710 + scroll
         console.log('f9');
         camera.position.setZ( 0 )
         camera.rotation.set(0, -(smallRad * 100), 0)
 
         camera.position.x = newScroll * 0.48
 
-    }else if(scroll > 1800){
+    }else if(scroll > 2000){
         camera.position.set(140, 0, 0)
     }
     console.log(camera.position);
